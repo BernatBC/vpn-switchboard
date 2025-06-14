@@ -1,10 +1,10 @@
+from app.core.providers.cloudflare_warp import warp_connect
+
 def connect_vpn(args):
     """Connects to a specified VPN."""
     vpn_name = getattr(args, 'vpn_name', None)
-    if vpn_name:
-        print(f"Connecting to VPN: {vpn_name}...")
-        # Placeholder for actual connection logic
-    else:
+    if not vpn_name:
         print("Error: VPN name not specified for connect command.")
-        # Optionally, print help for the connect subcommand
-        # connect_parser.print_help()
+        return
+    if vpn_name == "warp":
+        warp_connect()
