@@ -7,6 +7,7 @@ VPN Switchboard is a desktop application written in Python that enables users to
 - Easy connect/disconnect functionality
 - Status monitoring for active VPN connections
 - Cross-platform support
+- CLI and GUI
 
 ## Supported VPN Services
 
@@ -19,4 +20,44 @@ VPN Switchboard is a desktop application written in Python that enables users to
 
 ## Installation
 
-Instructions coming soon.
+Comming soon
+
+## Development instructions
+You'll need to have `python` installed.
+
+### Setting up the environment
+```sh
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+### Building and running
+```sh
+pip install -e .
+```
+
+## Usage
+
+### Setting up a service
+```sh
+vpn-switchboard setup $service
+```
+
+### Connect to a vpn
+```sh
+vpn-switchboard connect $service
+```
+
+### Disconnect a vpn
+```sh
+vpn-switchboard disconnect $service
+```
+
+### List of services
+```sh
+warp # Cloudflare warp
+protonvpn # ProtonVPN
+openvpn # OpenVPN
+wireguard # Wireguard
+```
