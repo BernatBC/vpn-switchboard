@@ -6,6 +6,5 @@ def list_configured(args):
     if not configurations:
         print("No VPN configurations found.")
     else:
-        print("Configured VPNs:")
         for config in configurations:
             print(config)

@@ -13,9 +13,10 @@ VPN Switchboard is a desktop application written in Python that enables users to
 
 | VPN Service        | Status |
 |--------------------|--------|
-| ProtonVPN          | ✅     |
+| ProtonVPN          | WIP    |
 | WireGuard          | WIP    |
-| Cloudflare WARP    | WIP    |
+| WindscribeVPN      | WIP    |
+| Cloudflare WARP    | ✅     |
 | OpenVPN            | WIP    |
 
 ## Installation
