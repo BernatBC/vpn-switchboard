@@ -1,10 +1,10 @@
+from app.core.providers.cloudflare_warp import warp_setup
+
 def setup_vpn(args):
-    """Removes a specified VPN configuration."""
+    """Sets up a specified VPN configuration."""
     vpn_name = getattr(args, 'vpn_name', None)
-    if vpn_name:
-        print(f"Removing VPN configuration: {vpn_name}...")
-        # Placeholder for actual removal logic
-    else:
-        print("Error: VPN name not specified for remove command.")
-        # Optionally, print help for the remove subcommand
-        # remove_parser.print_help()
+    if not vpn_name:
+        print("Error: VPN name not specified for setup command.")
+        return
+    if vpn_name == "warp":
+        warp_setup()

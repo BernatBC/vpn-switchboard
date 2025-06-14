@@ -1,4 +1,10 @@
 import subprocess
+from enum import Enum, auto
+
+class BashCommandStatus(Enum):
+    SUCCESS = auto()
+    ERROR_COMMAND_FAILED = auto()
+    ERROR_COMMAND_NOT_FOUND = auto()
 
 def run_bash_command(command):
     """
@@ -19,11 +25,10 @@ def run_bash_command(command):
         # Print stderr if any
         if result.stderr:
             print(result.stderr)
+        
+        return BashCommandStatus.SUCCESS, result.stdout.strip()
             
     except subprocess.CalledProcessError as e:
-        print(f"Error executing command: {command}")
-        print(f"Return code: {e.returncode}")
-        print(f"STDOUT: {e.stdout}")
-        print(f"STDERR: {e.stderr}")
+        return BashCommandStatus.ERROR_COMMAND_FAILED, f"Command failed with error: {e.stderr.strip()}"
     except FileNotFoundError:
-        print(f"Error: The command '{command.split()[0]}' was not found.")
+        return BashCommandStatus.ERROR_COMMAND_NOT_FOUND, f"Error: The command '{command.split()[0]}' was not found."
